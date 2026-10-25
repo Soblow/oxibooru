@@ -494,6 +494,7 @@ impl ErrorKind for crate::model::enums::ResourceProperty {
             Self::TagCategoryName => ErrorName::TagCategoryNameAlreadyExists,
             Self::UserName => ErrorName::UserNameAlreadyExists,
             Self::UserEmail => ErrorName::UserEmailAlreadyExists,
+            Self::Blocklist => ErrorName::TagNotFound,
         }
     }
 }

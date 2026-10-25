@@ -521,6 +521,7 @@ pub enum ResourceProperty {
     TagCategoryName,
     UserName,
     UserEmail,
+    Blocklist,
 }
 
 #[cfg(test)]
