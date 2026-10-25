@@ -114,7 +114,7 @@ impl Context {
     pub fn preferences(&self) -> &Preferences {
         if let Some(preferences_override) = &self.preferences_override {
             return preferences_override;
-        };
+        }
         match self.client.rank {
             UserRank::Anonymous => &self.config.anonymous_preferences,
             UserRank::Restricted => &self.config.restricted_preferences,

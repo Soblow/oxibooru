@@ -45,12 +45,10 @@ impl Preferences {
                 tracing::warn!("Unable to fetch user matching this id, returning default prefs");
                 return None;
             };
-            let Some(blocklist) = user_info.get_blocklist() else {
-                return None;
-            };
+            let blocklist = user_info.get_blocklist()?;
             let tag_blacklist = blocklist
-                .into_iter()
-                .filter_map(|microtag| microtag.names.first().map(|e| e.clone()))
+                .iter()
+                .filter_map(|microtag| microtag.names.first().cloned())
                 .collect();
 
             return Some(Preferences {

@@ -192,8 +192,12 @@ impl UserInfo {
         Self::new_batch(conn, config, users, fields, visibility)
     }
 
-    pub fn get_blocklist(&self) -> &Option<Vec<MicroTag>> {
-        &self.blocklist
+    pub fn get_blocklist(&self) -> Option<&Vec<MicroTag>> {
+        if let Some(blocklist) = &self.blocklist {
+            Some(blocklist)
+        } else {
+            None
+        }
     }
 }
 
